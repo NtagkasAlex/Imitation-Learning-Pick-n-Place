@@ -44,6 +44,8 @@ The agent is trained using the DAGGER algorithm, leveraging the expert system's 
 
 The trained policy's performance is evaluated by measuring the error from the goal position over multiple attempts. In most cases, the error reaches 0.05, indicating successful task completion. However, in some instances (2 out of 15), the policy prematurely releases the object.
 
+![](picknplace/result.gif)
+
 <p float="center">
   <img src="picknplace/image copy 2.png" width="600" />
 </p>
@@ -53,5 +55,5 @@ The trained policy's performance is evaluated by measuring the error from the go
 This project demonstrates the effectiveness of using DAGGER for training agents in complex tasks with visual feedback. The main challenges encountered include increasing dataset size, risk of overfitting, and balancing exploration and exploitation.
 
 ## Notable Observations
-- Videos of the trained policies will be provided.
 - DAGGER has some disadvantages, such as increasing dataset size, potential overfitting, and the exploration-exploitation trade
+
