@@ -14,7 +14,7 @@ This project implements a pick and place scenario using the Panda Gym library wi
 The environment is defined by a class called `PandaEnv` that handles rendering, the robot, and the task. The task involves moving an object from a random initial position in the xy plane to a constant goal position.
 
 ### Task Details
-- Object starts at uniformly random positions in the xy plane: \( 0 \leq x \leq \text{range} , -\text{range} \leq y \leq \text{range} \)
+- Object starts at uniformly random positions in the xy plane.
 - The camera placement is optimized for a clear view of the object.
 - Image processing involves converting images to grayscale
 
@@ -32,7 +32,7 @@ The expert system for the pick and place task uses a Finite State Machine (FSM) 
 4. If the goal is reached, release the object.
 
 <p float="center">
-  <img src="picknplace/image copy.png" width="400" />
+  <img src="picknplace/image copy.png" width="700" />
 </p>
 
 
@@ -42,9 +42,11 @@ The agent is trained using the DAGGER algorithm, leveraging the expert system's 
 
 ## Results
 
-The trained policy's performance is evaluated by measuring the error from the goal position over multiple attempts. In most cases, the error reaches 0.05, indicating successful task completion. However, in some instances (2 out of 15), the policy prematurely releases the object.
+The trained policy can be seen below:
 
 ![](picknplace/result.gif)
+
+The trained policy's performance is evaluated by measuring the error from the goal position over multiple attempts. In most cases, the error reaches 0.05, indicating successful task completion. However, in some instances (2 out of 15), the policy prematurely releases the object.
 
 <p float="center">
   <img src="picknplace/image copy 2.png" width="600" />
