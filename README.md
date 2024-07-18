@@ -1,6 +1,12 @@
 # Imitation-Learning-Pick-n-Place
 Imitation learning is a technique in machine learning where an agent learns to perform tasks by mimicking expert behavior. Unlike traditional reinforcement learning, which relies on rewards to guide learning, imitation learning directly leverages demonstrations from experts to train models more efficiently and effectively. 
+One of the prominent algorithms in this domain is DAGGER (Dataset
+Aggregation), introduced to address the shortcomings of earlier imitation learning approaches.
+We are going to implement the algorithm in 2 different scenarios:
+1. 2D Path Planning
+2. Pick and Place with 7-DOF Franka
 
+For details in look in the report file and if you need the code for the path planning case contact me!
 # Pick and Place with FRANKA
 
 <p float="center">
