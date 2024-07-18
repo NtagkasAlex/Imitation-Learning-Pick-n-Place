@@ -3,6 +3,10 @@ Imitation learning is a technique in machine learning where an agent learns to p
 
 # Pick and Place with FRANKA
 
+<p float="center">
+  <img src="picknplace/image.png" width="500" />
+</p>
+
 This project implements a pick and place scenario using the Panda Gym library with custom wrappers.
 
 ## Environment
@@ -14,6 +18,11 @@ The environment is defined by a class called `PandaEnv` that handles rendering, 
 - The camera placement is optimized for a clear view of the object.
 - Image processing involves converting images to grayscale
 
+<p float="center">
+    <img src="picknplace/panda_robot_image.png" width="400" />
+    <img src="picknplace/grayscale_image.png" width="400" />
+</p>
+
 ## Expert
 
 The expert system for the pick and place task uses a Finite State Machine (FSM) and the built-in inverse kinematics of Panda Gym. The FSM operates as follows:
@@ -22,6 +31,11 @@ The expert system for the pick and place task uses a Finite State Machine (FSM) 
 3. If the object is lost, return to the object.
 4. If the goal is reached, release the object.
 
+<p float="center">
+  <img src="picknplace/image copy.png" width="400" />
+</p>
+
+
 ## Agent Training
 
 The agent is trained using the DAGGER algorithm, leveraging the expert system's demonstrations to iteratively improve the policy.
@@ -29,6 +43,10 @@ The agent is trained using the DAGGER algorithm, leveraging the expert system's 
 ## Results
 
 The trained policy's performance is evaluated by measuring the error from the goal position over multiple attempts. In most cases, the error reaches 0.05, indicating successful task completion. However, in some instances (2 out of 15), the policy prematurely releases the object.
+
+<p float="center">
+  <img src="picknplace/image copy 2.png" width="600" />
+</p>
 
 ## Conclusion
 
