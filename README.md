@@ -30,7 +30,7 @@ The expert system for the pick and place task uses a Finite State Machine (FSM) 
 The agent is trained using the DAGGER algorithm, leveraging the expert system's demonstrations to iteratively improve the policy.
 
 ### Training Constants
-- \( b = 0.3^{i-1} \)
+- \( b = 0.3^{(i-1)} \)
 - \( T = 200 \)
 - Learning rate: \( 1 \times 10^{-4} \)
 - \( e = 0.05 \)
@@ -46,4 +46,4 @@ This project demonstrates the effectiveness of using DAGGER for training agents 
 
 ## Notable Observations
 - Videos of the trained policies will be provided.
-- DAGGER has some disadvantages, such as increasing dataset size, potential overfitting, and the exploration-exploitation trade-off.
+- DAGGER has some disadvantages, such as increasing dataset size, potential overfitting, and the exploration-exploitation trade
