@@ -12,10 +12,7 @@ The environment is defined by a class called `PandaEnv` that handles rendering, 
 ### Task Details
 - Object starts at uniformly random positions in the xy plane: \( 0 \leq x \leq \text{range} , -\text{range} \leq y \leq \text{range} \)
 - The camera placement is optimized for a clear view of the object.
-- Image processing involves converting images to grayscale using the formula: 
-  \[
-  \text{gray} = 0.2989 \times \text{red} + 0.5870 \times \text{green} + 0.1140 \times \text{blue}
-  \]
+- Image processing involves converting images to grayscale
 
 ## Expert
 
@@ -28,13 +25,6 @@ The expert system for the pick and place task uses a Finite State Machine (FSM) 
 ## Agent Training
 
 The agent is trained using the DAGGER algorithm, leveraging the expert system's demonstrations to iteratively improve the policy.
-
-### Training Constants
-- \( b = 0.3^{(i-1)} \)
-- \( T = 200 \)
-- Learning rate: \( 1 \times 10^{-4} \)
-- \( e = 0.05 \)
-- Goal position: (0.2, 0, 0)
 
 ## Results
 
