@@ -6,7 +6,7 @@ We are going to implement the algorithm in 2 different scenarios:
 1. 2D Path Planning
 2. Pick and Place with 7-DOF Franka
 
-For details in look in the report file and if you need the code for the path planning case contact me!
+For details take a look at the report file and if you need the code for the path planning case contact me!
 # Pick and Place with FRANKA
 
 <p float="center">
