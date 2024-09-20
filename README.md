@@ -45,6 +45,7 @@ The expert system for the pick and place task uses a Finite State Machine (FSM) 
 ## Agent Training
 
 The agent is trained using the DAGGER algorithm, leveraging the expert system's demonstrations to iteratively improve the policy.
+The input to the policy is only the **image** you see and I am using a **CNN** to predict the action that should be taken.
 
 ## Results
 
