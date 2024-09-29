@@ -20,10 +20,10 @@ from FSM import FSM
 from definitions import panda_env
 
 
-NUM_ITS = 1000
-beta_i  = 0.3
+NUM_ITS = 4000
+beta_i  = 0.5
 T       = 200
-max_timesteps=20
+max_timesteps=25
 def store_data(data, datasets_dir="./data"):
     # save data
     if not os.path.exists(datasets_dir):
@@ -93,14 +93,13 @@ if __name__=="__main__":
             
             gray = np.dot(next_state[...,:3], [0.2989, 0.5870, 0.1140])
             prediction = agent(torch.from_numpy(gray[np.newaxis,np.newaxis,...].astype(np.float32)).to(device))
-
-            pi = curr_beta * action + (1 - curr_beta) * prediction.cpu().detach().numpy().flatten()
+            action_pred=prediction.cpu().detach().numpy().flatten()
+            pi = curr_beta * action + (1 - curr_beta) * action_pred
             episode_reward += 0.1
-
+            # env.task.show_prediction(action_pred)
             samples["state"].append(state)            
             samples["action"].append(np.array(action))     
             samples["next_state"].append(next_state)
-            samples["reward"].append(0.1)
             samples["terminal"].append(terminated)
             
             state = next_state

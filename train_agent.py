@@ -5,9 +5,10 @@ import numpy as np
 import os
 import gzip
 import matplotlib.pyplot as plt
+from torch.utils.data import DataLoader, TensorDataset
 
 from model import Model
-from utils import *
+# from utils import *
 import torch
 
 def read_data(datasets_dir="./data", path='data.pkl.gzip', frac = 0.):
@@ -37,16 +38,28 @@ def train_model(X_train, y_train, path, num_epochs=50, learning_rate=1e-4, batch
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
     X_train_torch = torch.from_numpy(X_train[:,np.newaxis,...]).to(device)
     y_train_torch = torch.from_numpy(y_train).to(device)
+    
+    # Create TensorDataset and DataLoader to randomize batches
+    train_dataset = TensorDataset(X_train_torch, y_train_torch)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+
+    # Training loop
     for t in range(num_epochs):
-      print("[EPOCH]: %i" % (t), end='\r')
-      for i in range(0,len(X_train_torch),batch_size):
-        curr_X = X_train_torch[i:i+batch_size]
-        curr_Y = y_train_torch[i:i+batch_size]
-        preds  = model(curr_X)
-        loss   = criterion(preds, curr_Y)
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
+        print(f"[EPOCH]: {t}", end='\r')
+        
+        # Iterate over the randomized batches
+        for batch_X, batch_Y in train_loader:
+            # Move the data to the appropriate device (GPU/CPU)
+            batch_X, batch_Y = batch_X.to(device), batch_Y.to(device)
+            
+            # Forward pass
+            preds = model(batch_X)
+            loss = criterion(preds, batch_Y)
+            
+            # Backward pass and optimization
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
 
     model.save(path)
 

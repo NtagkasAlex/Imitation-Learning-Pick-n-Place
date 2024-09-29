@@ -16,7 +16,8 @@ class MyCustomPandaEnv(RobotTaskEnv):
         sim = PyBullet(render_mode=render_mode, renderer=renderer)
         p.configureDebugVisualizer(p.COV_ENABLE_SHADOWS, 0)  # Disable shadows
         robot = Panda(sim, block_gripper=False, base_position=np.array([-0.6, 0.0, 0.0]), control_type=control_type)
-        task = Mytask(sim, fixed_goal=np.array([0.2,0,0]))
+        task = Mytask(sim, fixed_goal=np.array([0.2,0.1,0]))
         super().__init__(robot, task, render_width=render_width, render_height=render_height, 
                          render_target_position=render_target_position, render_distance=render_distance,
                          render_yaw=render_yaw, render_pitch=render_pitch, render_roll=render_roll)
+    

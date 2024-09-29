@@ -39,7 +39,7 @@ def run_episode(env, agent, rendering=True, max_timesteps=40):
         gray = np.dot(state[...,:3], [0.2125, 0.7154, 0.0721])
         pred = agent(torch.from_numpy(gray[np.newaxis, np.newaxis,...]).type(torch.FloatTensor))
         a    = pred.detach().numpy().flatten()
-
+        # env.task.show_prediction(a)
         observation, reward, terminated, truncated, info = env.step(a)
         current_position = observation["observation"][0:3]
         object_position = observation["achieved_goal"][0:3]
@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
     rendering = True                      
 
-    n_test_episodes = 10 
+    n_test_episodes = 10
 
     # TODO: load agent
     agent = Model()
@@ -71,6 +71,7 @@ if __name__ == "__main__":
     agent.load(args.path)
     # agent.load("models/agent.ckpt")
     env = panda_env()
+    # env.task.show_prediction(np.array([0,0.2,0,0]))
     desired_fps = 100 # Adjust this value to change the speed
     fixed_goal_position = np.array([0.2, 0.0, 0.0])  # Adjust as needed for your table setup
     observation, info = env.reset()
