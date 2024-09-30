@@ -59,6 +59,9 @@ The trained policy's performance is evaluated by measuring the error from the go
   <img src="picknplace/image copy 2.png" width="600" />
 </p>
 
+We have also trained a policy to classify objects and place cubes on the right and spheres on the left.
+![](picknplace/result2.gif)
+
 ## Conclusion
 
 This project demonstrates the effectiveness of using DAGGER for training agents in complex tasks with visual feedback. The main challenges encountered include increasing dataset size, risk of overfitting, and balancing exploration and exploitation.
